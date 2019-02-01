@@ -1,23 +1,15 @@
 ﻿using AppKit;
 using Foundation;
+using MvvmCross.Forms.Platforms.Mac.Core;
 
 namespace MvvmQuiz.macOS
 {
     [Register("AppDelegate")]
-    public class AppDelegate : NSApplicationDelegate
+    public class AppDelegate : MvxFormsApplicationDelegate<Setup, Core.App, Forms.UI.App>
     {
-        public AppDelegate()
-        {
-        }
-
         public override void DidFinishLaunching(NSNotification notification)
         {
-            // Insert code here to initialize your application
-        }
-
-        public override void WillTerminate(NSNotification notification)
-        {
-            // Insert code here to tear down your application
+            base.DidFinishLaunching(notification);
         }
     }
 }

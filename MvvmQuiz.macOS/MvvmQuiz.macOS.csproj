@@ -81,13 +81,25 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="ViewController.cs" />
-    <Compile Include="ViewController.designer.cs">
-      <DependentUpon>ViewController.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Setup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <InterfaceDefinition Include="Main.storyboard" />
+    <PackageReference Include="Xamarin.Forms">
+      <Version>3.4.0.1029999</Version>
+    </PackageReference>
+    <PackageReference Include="MvvmCross.Forms">
+      <Version>6.2.2</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MvvmQuiz\MvvmQuiz.Core.csproj">
+      <Project>{CA85D065-480D-4B05-B1A2-A9662A402733}</Project>
+      <Name>MvvmQuiz.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MvvmQuiz.Forms.UI\MvvmQuiz.Forms.UI.csproj">
+      <Project>{BEE647ED-5119-41E0-AC42-218F5C112029}</Project>
+      <Name>MvvmQuiz.Forms.UI</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
 </Project>

@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmQuiz.macOS", "MvvmQuiz.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmQuiz.Forms.UI", "MvvmQuiz.Forms.UI\MvvmQuiz.Forms.UI.csproj", "{BEE647ED-5119-41E0-AC42-218F5C112029}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmQuiz.Forms.UITests", "MvvmQuiz.Forms.UITests\MvvmQuiz.Forms.UITests.csproj", "{4B0A33FE-9E2C-4EC2-95CB-AF359FDABAFD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +119,18 @@ Global
 		{BEE647ED-5119-41E0-AC42-218F5C112029}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{BEE647ED-5119-41E0-AC42-218F5C112029}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{BEE647ED-5119-41E0-AC42-218F5C112029}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{4B0A33FE-9E2C-4EC2-95CB-AF359FDABAFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B0A33FE-9E2C-4EC2-95CB-AF359FDABAFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B0A33FE-9E2C-4EC2-95CB-AF359FDABAFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B0A33FE-9E2C-4EC2-95CB-AF359FDABAFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B0A33FE-9E2C-4EC2-95CB-AF359FDABAFD}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{4B0A33FE-9E2C-4EC2-95CB-AF359FDABAFD}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{4B0A33FE-9E2C-4EC2-95CB-AF359FDABAFD}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{4B0A33FE-9E2C-4EC2-95CB-AF359FDABAFD}.Release|iPhone.Build.0 = Release|Any CPU
+		{4B0A33FE-9E2C-4EC2-95CB-AF359FDABAFD}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{4B0A33FE-9E2C-4EC2-95CB-AF359FDABAFD}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{4B0A33FE-9E2C-4EC2-95CB-AF359FDABAFD}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{4B0A33FE-9E2C-4EC2-95CB-AF359FDABAFD}.Debug|iPhone.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F9C4BF1A-6709-46CA-AD06-12BE4107B464} = {8441BBEB-F049-4192-867C-863A404ACACB}
