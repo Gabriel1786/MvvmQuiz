@@ -4,10 +4,10 @@ using MvvmQuiz.Core.ViewModels;
 
 namespace MvvmQuiz.Forms.UI.Views
 {
-    [MvxContentPagePresentation(WrapInNavigationPage = true)]
-    public partial class StartPage : MvxContentPage<StartViewModel>
+    [MvxContentPagePresentation]
+    public partial class QuizPage : MvxContentPage<QuizViewModel>
     {
-        public StartPage()
+        public QuizPage()
         {
             InitializeComponent();
         }

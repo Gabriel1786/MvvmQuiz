@@ -9,11 +9,10 @@
     <Folder Include="Services\" />
     <Folder Include="ViewModels\Base\" />
     <Folder Include="Models\" />
+    <Folder Include="Models\Enums\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MvvmCross" Version="6.2.2" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Remove="Models\Base\BaseModel.cs" />
   </ItemGroup>
 </Project>

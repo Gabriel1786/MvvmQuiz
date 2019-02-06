@@ -1,7 +1,5 @@
-﻿using System;
-using MvvmCross.IoC;
+﻿using MvvmCross.IoC;
 using MvvmCross.ViewModels;
-using MvvmQuiz.Core.ViewModels;
 
 namespace MvvmQuiz.Core
 {

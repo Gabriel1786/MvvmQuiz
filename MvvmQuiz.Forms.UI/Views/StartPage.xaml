@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Mvx:MvxContentPage x:TypeArguments="ViewModels:StartViewModel" 
+<views:MvxContentPage x:TypeArguments="viewModels:StartViewModel" 
                     xmlns="http://xamarin.com/schemas/2014/forms" 
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-                    xmlns:Mvx="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms" 
-                    xmlns:ViewModels="clr-namespace:MvvmQuiz.Core.ViewModels;assembly=MvvmQuiz.Core" 
+                    xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms" 
+                    xmlns:viewModels="clr-namespace:MvvmQuiz.Core.ViewModels;assembly=MvvmQuiz.Core" 
+                    xmlns:mvx="clr-namespace:MvvmCross.Forms.Bindings;assembly=MvvmCross.Forms"
+                    xmlns:local="clr-namespace:MvvmQuiz.Core;assembly=MvvmQuiz.Core"
                     x:Class="MvvmQuiz.Forms.UI.Views.StartPage"
                     Title="Start Page">
-    
-    <Label Text="Welcome to MvvmQuiz app!" VerticalOptions="Center" HorizontalOptions="Center"/>
-    
-</Mvx:MvxContentPage>
+    <StackLayout HorizontalOptions="Center">
+        <Label Text="Welcome to MvvmQuiz app!" VerticalOptions="CenterAndExpand"/>
+        <StackLayout VerticalOptions="CenterAndExpand" Spacing="12">
+            <Button Text="Movie Quiz" Style="{StaticResource StartPageButtonStyle}"
+                    Command="{mvx:MvxBind ShowQuizViewModelCommand}" 
+                    CommandParameter="{x:Static local:QuizTheme.Movie}" />
+            <Button Text="Country Quiz" Style="{StaticResource StartPageButtonStyle}"
+                    Command="{mvx:MvxBind ShowQuizViewModelCommand}" 
+                    CommandParameter="{x:Static local:QuizTheme.Country}" />
+            <Button Text="Celebrity Quiz" Style="{StaticResource StartPageButtonStyle}"
+                    Command="{mvx:MvxBind ShowQuizViewModelCommand}" 
+                    CommandParameter="{x:Static local:QuizTheme.Celebrity}" />
+            <Button Text="High Scores" Style="{StaticResource StartPageButtonStyle}"
+                    Command="{mvx:MvxBind ShowHighScoreViewModelCommand}" />
+        </StackLayout>
+    </StackLayout>
+</views:MvxContentPage>

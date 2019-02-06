@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<views:MvxContentPage x:TypeArguments="viewModels:HighScoreViewModel" 
+                    xmlns="http://xamarin.com/schemas/2014/forms" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                    xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms" 
+                    xmlns:viewModels="clr-namespace:MvvmQuiz.Core.ViewModels;assembly=MvvmQuiz.Core" 
+                    xmlns:mvx="clr-namespace:MvvmCross.Forms.Bindings;assembly=MvvmCross.Forms"
+                    xmlns:local="clr-namespace:MvvmQuiz.Core;assembly=MvvmQuiz.Core"
+                    x:Class="MvvmQuiz.Forms.UI.Views.HighScorePage"
+                    Title="High Scores">
+</views:MvxContentPage>

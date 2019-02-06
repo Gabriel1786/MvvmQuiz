@@ -1,5 +1,4 @@
 ﻿using Android.App;
-using Android.Widget;
 using Android.OS;
 using Android.Content.PM;
 using MvvmCross.Forms.Platforms.Android.Views;
