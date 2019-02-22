@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+          xmlns:components="clr-namespace:MvvmQuiz.Forms.UI.Components;assembly=MvvmQuiz.Forms.UI"
+          x:Class="MvvmQuiz.Forms.UI.Components.QuizQuestionViewCell">
+    
+    <StackLayout Padding="12,5,12,12" Spacing="0">
+        <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center" 
+               Style="{StaticResource QuestionTitleStyle}"
+               Text="{Binding Question}" MaxLines="10"/>
+       
+        <BoxView HeightRequest="0.5" WidthRequest="260"
+                 HorizontalOptions="Center"
+                 VerticalOptions="Center" Margin="0,10,0,0"
+                 BackgroundColor="#b6b6b6" />
+        
+       <components:RadioButtonGroup Spacing="0" Padding="0"
+                     x:Name="questionRadioGroup"
+                     VerticalOptions="FillAndExpand" 
+                     HorizontalOptions="FillAndExpand"
+                     BindableLayout.ItemsSource="{Binding Choices}">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <components:QuestionRadioButton/>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </components:RadioButtonGroup>
+    </StackLayout>
+    
+</ViewCell>

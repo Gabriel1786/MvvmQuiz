@@ -5,8 +5,8 @@
     
     <Style x:Key="StartPageButtonStyle" TargetType="Button">
         <Setter Property="VisualStateManager.VisualStateGroups">
-            <VisualStateGroupList x:Name="CommonStates">
-                <VisualStateGroup>
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
                     <VisualState x:Name="Normal">
                         <VisualState.Setters>
                             <Setter Property="BackgroundColor" Value="Blue" />
@@ -20,6 +20,11 @@
                     <VisualState x:Name="Disabled">
                         <VisualState.Setters>
                             <Setter Property="BackgroundColor" Value="Red" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Pressed">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="Green" />
                         </VisualState.Setters>
                     </VisualState>
                 </VisualStateGroup>

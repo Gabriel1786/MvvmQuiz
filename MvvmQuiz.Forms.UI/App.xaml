@@ -7,8 +7,9 @@
         <ResourceDictionary>
             
             <ResourceDictionary.MergedDictionaries>
-                <styles:Colors />
-                <styles:Buttons />
+                <styles:Colors/>
+                <styles:Buttons/>
+                <styles:Labels/>
             </ResourceDictionary.MergedDictionaries>
             
         </ResourceDictionary>

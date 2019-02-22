@@ -11,6 +11,7 @@
     <Folder Include="Models\" />
     <Folder Include="Models\Enums\" />
     <Folder Include="Extensions\" />
+    <Folder Include="Models\Base\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MvvmCross" Version="6.2.2" />

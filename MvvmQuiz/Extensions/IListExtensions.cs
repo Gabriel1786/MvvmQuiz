@@ -12,8 +12,8 @@ namespace MvvmQuiz.Core.Extensions
         public static void Shuffle<T>(this IList<T> list)
         {
             var rng = new Random();
-
             int n = list.Count;
+
             while (n > 1)
             {
                 n--;

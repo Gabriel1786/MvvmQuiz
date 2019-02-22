@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                    x:Class="MvvmQuiz.Forms.UI.Styles.Labels">
+    <!-- Quiz Question -->
+    
+    <OnPlatform x:Key="QuestionFont" x:TypeArguments="Font">
+        <On Platform="Android" Value="Bold,13" />
+        <On Platform="iOS" Value="Bold,14" />
+        <On Platform="macOS" Value="Bold,14" />
+        <On Platform="UWP" Value="Bold,14" />
+    </OnPlatform>
+    
+    <Style x:Key="QuestionTitleStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="Black"/>
+        <Setter Property="Font" Value="{DynamicResource QuestionFont}" />
+    </Style>
+    
+    <!-- Quiz Multiple Choice -->
+    <OnPlatform x:Key="MultipleChoiceFont" x:TypeArguments="Font">
+        <On Platform="Android" Value="12" />
+        <On Platform="iOS" Value="12" />
+        <On Platform="macOS" Value="10" />
+        <On Platform="UWP" Value="10" />
+    </OnPlatform>
+    
+    <Style x:Key="MultipleChoiceStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="Gray"/>
+        <Setter Property="Font" Value="{DynamicResource MultipleChoiceFont}" />
+    </Style>
+    
+    
+</ResourceDictionary>

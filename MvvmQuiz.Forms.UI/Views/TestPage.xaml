@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<views:MvxContentPage x:TypeArguments="viewModels:TestViewModel" 
+                    xmlns="http://xamarin.com/schemas/2014/forms" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                    xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms" 
+                    xmlns:viewModels="clr-namespace:MvvmQuiz.Core.ViewModels;assembly=MvvmQuiz.Core" 
+                    xmlns:mvx="clr-namespace:MvvmCross.Forms.Bindings;assembly=MvvmCross.Forms"
+                    xmlns:local="clr-namespace:MvvmQuiz.Core;assembly=MvvmQuiz.Core"
+                    xmlns:components="clr-namespace:MvvmQuiz.Forms.UI.Components;assembly=MvvmQuiz.Forms.UI"
+                    x:Class="MvvmQuiz.Forms.UI.Views.TestPage"
+                    Title="Test Page">
+    <StackLayout HorizontalOptions="FillAndExpand" 
+                 VerticalOptions="FillAndExpand">
+        <components:RadioButtonGroup Spacing="30" Padding="0"
+                     VerticalOptions="FillAndExpand" 
+                     HorizontalOptions="FillAndExpand"
+                     BindableLayout.ItemsSource="{Binding Data}">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Horizontal"
+                                 AutomationId="{Binding .}">
+                        <Label Text="O"/>
+                        <Label Text="{Binding .}"/>
+                    </StackLayout>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </components:RadioButtonGroup>
+    </StackLayout>
+</views:MvxContentPage>

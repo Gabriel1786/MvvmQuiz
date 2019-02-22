@@ -88,7 +88,8 @@
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
     <MtouchVerbosity>
     </MtouchVerbosity>
-    <CodesignProvision>VS: WildCard Development</CodesignProvision>
+    <CodesignProvision>Gabe-DevAll</CodesignProvision>
+    <MtouchExtraArgs>--optimize=-remove-dynamic-registrar</MtouchExtraArgs>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -106,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="Renderers\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -118,16 +120,17 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Setup.cs" />
+    <Compile Include="Renderers\NoSelectionCellRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.TestCloud.Agent">
       <Version>0.21.7</Version>
     </PackageReference>
     <PackageReference Include="MvvmCross.Forms">
-      <Version>6.2.2</Version>
+      <Version>6.2.3</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
-      <Version>3.5.0.129452</Version>
+      <Version>3.5.0.169047</Version>
     </PackageReference>
     <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie">
       <Version>2.7.0</Version>
@@ -142,6 +145,9 @@
       <Project>{CA85D065-480D-4B05-B1A2-A9662A402733}</Project>
       <Name>MvvmQuiz.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\choice-checkmark.json" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

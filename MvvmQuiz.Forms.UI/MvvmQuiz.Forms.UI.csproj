@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="3.5.0.129452" />
-    <PackageReference Include="MvvmCross.Forms" Version="6.2.2" />
+    <PackageReference Include="Xamarin.Forms" Version="3.5.0.169047" />
+    <PackageReference Include="MvvmCross.Forms" Version="6.2.3" />
     <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="2.7.0" />
   </ItemGroup>
   <ItemGroup>
@@ -14,11 +14,21 @@
     <Folder Include="Components\" />
     <Folder Include="ValueConverters\" />
     <Folder Include="Styles\" />
+    <Folder Include="Components\ViewCells\" />
+    <Folder Include="Components\RadioButtonGroup\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MvvmQuiz\MvvmQuiz.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Views\QuizPageModel.cs" />
+    <Compile Remove="Components\Buttons\CustomButton.cs" />
+    <Compile Remove="Components\Headers\QuizHeaderTemplate.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="Components\Headers\QuizHeaderTemplate.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Assets\LottieAnimations\choice-checkmark.json" />
   </ItemGroup>
 </Project>
