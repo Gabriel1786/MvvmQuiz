@@ -20,9 +20,6 @@ namespace MvvmQuiz.Forms.UI.Components
 
             if (BindingContext is Choice choice)
             {
-                //if (choiceCheckAnimation.IsPlaying)
-                    //choiceCheckAnimation.Pause();
-
                 if (choice.IsSelected)
                     choiceCheckAnimation.PlayProgressSegment(0.8f, 0.8f);
                 else
@@ -38,7 +35,6 @@ namespace MvvmQuiz.Forms.UI.Components
             {
                 Console.WriteLine("QuestionRadioButton did change context");
 
-                choice.PropertyChanged -= Choice_PropertyChanged;
                 choice.PropertyChanged += Choice_PropertyChanged;
 
                 if (choiceCheckAnimation.IsPlaying)
@@ -57,7 +53,7 @@ namespace MvvmQuiz.Forms.UI.Components
             {
                 if (BindingContext is Choice choice)
                 {
-                    //Console.WriteLine("Choice_PropertyChanged");
+                    Console.WriteLine("Choice_PropertyChanged");
 
                     if (choiceCheckAnimation.IsPlaying)
                         choiceCheckAnimation.Pause();

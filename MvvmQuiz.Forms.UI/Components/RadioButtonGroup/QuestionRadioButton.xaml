@@ -12,10 +12,6 @@
              mvx:Bi.nd="BackgroundColor IsSelected, Converter=BoolToColor, ConverterParameter=#b6b6b6;
                         AutomationId Text">
 
-    <!--<Label Text="O" Style="{StaticResource MultipleChoiceStyle}"
-           FontSize="12" Margin="20,0,5,0"
-           HorizontalOptions="Start" VerticalOptions="FillAndExpand"
-           VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>-->
     <lottie:AnimationView x:Name="choiceCheckAnimation"
                           HeightRequest="50"
                           WidthRequest="70"

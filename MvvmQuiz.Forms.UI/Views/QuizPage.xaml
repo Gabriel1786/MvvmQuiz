@@ -10,16 +10,17 @@
                     x:Class="MvvmQuiz.Forms.UI.Views.QuizPage"
                     Title="{Binding Quiz.Theme, StringFormat='{0} Quiz'}">
     <ListView ItemsSource="{Binding MultipleChoices}"
-              CachingStrategy="RetainElement"
+              CachingStrategy="RecycleElement"
               VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
               SelectionMode="None"
-              SeparatorVisibility="None">
+              SeparatorVisibility="None"
+              AutomationId="questionListView">
         <ListView.RowHeight>
             <OnPlatform x:TypeArguments="x:Int32">
                 <On Platform="Android" Value="300"/>
                 <On Platform="iOS" Value="300"/>
                 <On Platform="macOS" Value="250"/>
-                <On Platform="UWP" Value="400"/>
+                <On Platform="UWP" Value="250"/>
             </OnPlatform>
         </ListView.RowHeight>
         <ListView.ItemTemplate>

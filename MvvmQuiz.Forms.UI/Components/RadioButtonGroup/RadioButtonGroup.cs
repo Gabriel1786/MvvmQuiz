@@ -35,7 +35,7 @@ namespace MvvmQuiz.Forms.UI.Components
 
         void HandleTap(View view)
         {
-            DidSelect?.Invoke(this, view.AutomationId);
+            DidSelect?.Invoke(this, view.BindingContext);
         }
 
         protected override void OnBindingContextChanged()

@@ -42,9 +42,12 @@ namespace MvvmQuiz.Core.ViewModels
                     }
                 }
 
-                foreach (var multipleChoice in value)
+                if (value != null)
                 {
-                    multipleChoice.PropertyChanged += MultipleChoices_PropertyChanged;
+                    foreach (var multipleChoice in value)
+                    {
+                        multipleChoice.PropertyChanged += MultipleChoices_PropertyChanged;
+                    }
                 }
 
                 SetProperty(ref _multipleChoices, value);

@@ -9,7 +9,7 @@
                     x:Class="MvvmQuiz.Forms.UI.Views.StartPage"
                     Title="Start Page">
     <StackLayout HorizontalOptions="Center">
-        <Label Text="Welcome to MvvmQuiz app!" VerticalOptions="CenterAndExpand"/>
+        <Label Text="Welcome to MvvmQuiz app!" VerticalOptions="CenterAndExpand" AutomationId="welcomeLabel"/>
         <StackLayout VerticalOptions="CenterAndExpand" Spacing="12">
             <Button Text="Movie Quiz" Style="{StaticResource StartPageButtonStyle}"
                     Command="{mvx:MvxBind ShowQuizViewModelCommand}" 
@@ -17,7 +17,7 @@
             <Button Text="Country Quiz" Style="{StaticResource StartPageButtonStyle}"
                     Command="{mvx:MvxBind ShowQuizViewModelCommand}" 
                     CommandParameter="{x:Static local:QuizTheme.Country}" />
-            <Button Text="Celebrity Quiz" Style="{StaticResource StartPageButtonStyle}"
+            <Button Text="Celebrity Quiz" AutomationId="celebrityStartQuizButton" Style="{StaticResource StartPageButtonStyle}"
                     Command="{mvx:MvxBind ShowQuizViewModelCommand}" 
                     CommandParameter="{x:Static local:QuizTheme.Celebrity}" />
             <Button Text="High Scores" Style="{StaticResource StartPageButtonStyle}"

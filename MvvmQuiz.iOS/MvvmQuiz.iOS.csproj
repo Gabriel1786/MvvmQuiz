@@ -148,6 +148,12 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\choice-checkmark.json" />
+    <BundleResource Include="Resources\confetti.json" />
+    <BundleResource Include="Resources\gradient-animated-background.json" />
+    <BundleResource Include="Resources\movie-action.json" />
+    <BundleResource Include="Resources\star.json" />
+    <BundleResource Include="Resources\trophy.json" />
+    <BundleResource Include="Resources\world-spin.json" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

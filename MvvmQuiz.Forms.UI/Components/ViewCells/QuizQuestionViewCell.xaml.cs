@@ -12,9 +12,9 @@ namespace MvvmQuiz.Forms.UI.Components
             questionRadioGroup.DidSelect += (object sender, object e) => 
             {
                 System.Console.WriteLine("DidSelect event fired");
-                if (e is string answerSelected && BindingContext is MultipleChoice multipleChoice)
+                if (e is Choice choiceSelected && BindingContext is MultipleChoice multipleChoice)
                 {
-                    multipleChoice.SelectedChoice = answerSelected;
+                    multipleChoice.SelectedChoice = choiceSelected.Text;
                 }
             };
         }
