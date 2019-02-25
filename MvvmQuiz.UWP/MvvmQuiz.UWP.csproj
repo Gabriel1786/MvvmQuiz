@@ -129,6 +129,13 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <Content Include="Assets\LottieFiles\choice-checkmark.json" />
+    <Content Include="Assets\LottieFiles\confetti.json" />
+    <Content Include="Assets\LottieFiles\gradient-animated-background.json" />
+    <Content Include="Assets\LottieFiles\movie-action.json" />
+    <Content Include="Assets\LottieFiles\star.json" />
+    <Content Include="Assets\LottieFiles\trophy.json" />
+    <Content Include="Assets\LottieFiles\world-spin.json" />
     <None Include="MvvmQuiz.UWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -159,10 +166,10 @@
       <Version>6.2.3</Version>
     </PackageReference>
     <PackageReference Include="MvvmCross.Forms">
-      <Version>6.2.2</Version>
+      <Version>6.2.3</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
-      <Version>3.4.0.1029999</Version>
+      <Version>3.5.0.169047</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

@@ -15,12 +15,18 @@
     <lottie:AnimationView x:Name="choiceCheckAnimation"
                           HeightRequest="50"
                           WidthRequest="70"
-                          Animation="choice-checkmark.json"
                           Speed="1.0"
                           Loop="false"
                           AutoPlay="false"
-                          IsPlaying="false" />
-    
+                          IsPlaying="false">
+        <lottie:AnimationView.Animation>
+            <OnPlatform x:TypeArguments="x:String">
+                <On Platform="Android, iOS, macOS" Value="choice-checkmark.json"/>
+                <On Platform="UWP" Value="Assets/LottieFiles/choice-checkmark.json"/>
+            </OnPlatform>
+        </lottie:AnimationView.Animation>
+    </lottie:AnimationView>
+
     <Label Text="{Binding Text}" Style="{StaticResource MultipleChoiceStyle}"
            VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
            VerticalTextAlignment="Center" HorizontalTextAlignment="Start"/>

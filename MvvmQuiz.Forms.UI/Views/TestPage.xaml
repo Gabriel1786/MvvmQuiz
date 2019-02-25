@@ -12,63 +12,112 @@
                     Title="Test Page">
     <ScrollView>
         <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-            
+
             <lottie:AnimationView
                           HeightRequest="200"
                           WidthRequest="200"
-                          Animation="choice-checkmark.json"
                           Speed="1.0"
                           Loop="true"
                           AutoPlay="true"
-                          IsPlaying="true" />
+                          IsPlaying="true">
+                <lottie:AnimationView.Animation>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android, iOS, macOS" Value="choice-checkmark.json"/>
+                        <On Platform="UWP" Value="Assets/LottieFiles/choice-checkmark.json"/>
+                    </OnPlatform>
+                </lottie:AnimationView.Animation>
+            </lottie:AnimationView>
+
             <lottie:AnimationView
                           HeightRequest="200"
                           WidthRequest="200"
-                          Animation="confetti.json"
                           Speed="1.0"
                           Loop="true"
                           AutoPlay="true"
-                          IsPlaying="true" />
+                          IsPlaying="true">
+                <lottie:AnimationView.Animation>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android, iOS, macOS" Value="confetti.json"/>
+                        <On Platform="UWP" Value="Assets/LottieFiles/confetti.json"/>
+                    </OnPlatform>
+                </lottie:AnimationView.Animation>
+            </lottie:AnimationView>
+
             <lottie:AnimationView 
                           HeightRequest="200"
                           WidthRequest="200"
-                          Animation="trophy.json"
                           Speed="1.0"
                           Loop="true"
                           AutoPlay="true"
-                          IsPlaying="true" />
+                          IsPlaying="true">
+                <lottie:AnimationView.Animation>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android, iOS, macOS" Value="trophy.json"/>
+                        <On Platform="UWP" Value="Assets/LottieFiles/trophy.json"/>
+                    </OnPlatform>
+                </lottie:AnimationView.Animation>
+            </lottie:AnimationView>
+
             <lottie:AnimationView 
                           HeightRequest="200"
                           WidthRequest="200"
-                          Animation="gradient-animated-background.json"
                           Speed="1.0"
                           Loop="true"
                           AutoPlay="true"
-                          IsPlaying="true" />
-            <lottie:AnimationView 
-                          HeightRequest="240"
-                          WidthRequest="240"
-                          Animation="movie-action.json"
-                          Speed="1.2"
-                          Loop="true"
-                          AutoPlay="true"
-                          IsPlaying="true" />
+                          IsPlaying="true">
+                <lottie:AnimationView.Animation>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android, iOS, macOS" Value="gradient-animated-background.json"/>
+                        <On Platform="UWP" Value="Assets/LottieFiles/gradient-animated-background.json"/>
+                    </OnPlatform>
+                </lottie:AnimationView.Animation>
+            </lottie:AnimationView>
+
             <lottie:AnimationView 
                           HeightRequest="200"
                           WidthRequest="200"
-                          Animation="star.json"
                           Speed="0.4"
                           Loop="true"
                           AutoPlay="true"
-                          IsPlaying="true" />
+                          IsPlaying="true">
+                <lottie:AnimationView.Animation>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android, iOS, macOS" Value="star.json"/>
+                        <On Platform="UWP" Value="Assets/LottieFiles/star.json"/>
+                    </OnPlatform>
+                </lottie:AnimationView.Animation>
+            </lottie:AnimationView>
+
+            <lottie:AnimationView 
+                          HeightRequest="245"
+                          WidthRequest="245"
+                          Speed="1.2"
+                          Loop="true"
+                          AutoPlay="true"
+                          IsPlaying="true">
+                <lottie:AnimationView.Animation>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android, iOS, macOS" Value="movie-action.json"/>
+                        <On Platform="UWP" Value="Assets/LottieFiles/movie-action.json"/>
+                    </OnPlatform>
+                </lottie:AnimationView.Animation>
+            </lottie:AnimationView>
+
             <lottie:AnimationView 
                           HeightRequest="200"
                           WidthRequest="200"
-                          Animation="world-spin.json"
                           Speed="1.5"
                           Loop="true"
                           AutoPlay="true"
-                          IsPlaying="true" />
+                          IsPlaying="true">
+                <lottie:AnimationView.Animation>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android, iOS, macOS" Value="world-spin.json"/>
+                        <On Platform="UWP" Value="Assets/LottieFiles/world-spin.json"/>
+                    </OnPlatform>
+                </lottie:AnimationView.Animation>
+            </lottie:AnimationView>
+            
         </StackLayout>
     </ScrollView>
 </views:MvxContentPage>
