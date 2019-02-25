@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Linq;
 using NUnit.Framework;
 using Xamarin.UITest;
+using Xamarin.UITest.Queries;
 
 namespace MvvmQuiz.Forms.UITests
 {
@@ -25,7 +27,25 @@ namespace MvvmQuiz.Forms.UITests
         [Test]
         public void AppLaunches()
         {
-            app.Screenshot("First screen.");
+            app.Repl();
+            // Arrange
+            AppResult[] result = app.Query(c => c.Marked("welcomeLabel"));
+
+            // Act
+
+            // Assert
+            Assert.IsTrue(result.Any());
+        }
+
+        [Test]
+        public void NavigatesToCelebrityQuiz()
+        {
+            app.Repl();
+
+            app.Tap(c => c.Marked("celebrityStartQuizButton"));
+
+            AppResult[] result = app.Query(c => c.Marked("questionListView"));
+            Assert.IsTrue(result.Any());
         }
     }
 }

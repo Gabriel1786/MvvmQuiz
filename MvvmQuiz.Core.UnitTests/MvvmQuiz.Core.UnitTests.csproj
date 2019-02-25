@@ -5,10 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.UITest" Version="2.2.7" />
     <PackageReference Include="NUnit" Version="3.11.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MvvmQuiz.Forms.UI\MvvmQuiz.Forms.UI.csproj" />
+    <ProjectReference Include="..\MvvmQuiz\MvvmQuiz.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
   </ItemGroup>
 </Project>
