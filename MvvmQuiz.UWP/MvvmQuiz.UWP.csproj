@@ -177,8 +177,8 @@
       <Project>{bee647ed-5119-41e0-ac42-218f5c112029}</Project>
       <Name>MvvmQuiz.Forms.UI</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MvvmQuiz\MvvmQuiz.Core.csproj">
-      <Project>{ca85d065-480d-4b05-b1a2-a9662a402733}</Project>
+    <ProjectReference Include="..\MvvmQuiz.Core\MvvmQuiz.Core.csproj">
+      <Project>{64E41458-28A2-4564-B9D4-8E1A2FCB7195}</Project>
       <Name>MvvmQuiz.Core</Name>
     </ProjectReference>
   </ItemGroup>

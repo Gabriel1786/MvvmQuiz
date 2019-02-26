@@ -8,9 +8,9 @@
     <PackageReference Include="NUnit" Version="3.11.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MvvmQuiz\MvvmQuiz.Core.csproj" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ViewModels\" />
+    <ProjectReference Include="..\MvvmQuiz.Core\MvvmQuiz.Core.csproj" />
   </ItemGroup>
 </Project>

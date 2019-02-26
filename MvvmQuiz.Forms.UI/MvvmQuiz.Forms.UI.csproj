@@ -18,9 +18,6 @@
     <Folder Include="Components\RadioButtonGroup\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MvvmQuiz\MvvmQuiz.Core.csproj" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Remove="Views\QuizPageModel.cs" />
     <Compile Remove="Components\Buttons\CustomButton.cs" />
     <Compile Remove="Components\Headers\QuizHeaderTemplate.cs" />
@@ -30,5 +27,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Assets\LottieAnimations\choice-checkmark.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MvvmQuiz.Core\MvvmQuiz.Core.csproj" />
   </ItemGroup>
 </Project>

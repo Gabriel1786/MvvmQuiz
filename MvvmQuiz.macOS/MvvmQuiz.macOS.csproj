@@ -96,13 +96,13 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MvvmQuiz\MvvmQuiz.Core.csproj">
-      <Project>{CA85D065-480D-4B05-B1A2-A9662A402733}</Project>
-      <Name>MvvmQuiz.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MvvmQuiz.Forms.UI\MvvmQuiz.Forms.UI.csproj">
       <Project>{BEE647ED-5119-41E0-AC42-218F5C112029}</Project>
       <Name>MvvmQuiz.Forms.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MvvmQuiz.Core\MvvmQuiz.Core.csproj">
+      <Project>{64E41458-28A2-4564-B9D4-8E1A2FCB7195}</Project>
+      <Name>MvvmQuiz.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
