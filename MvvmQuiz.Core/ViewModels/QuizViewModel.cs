@@ -66,7 +66,7 @@ namespace MvvmQuiz.Core.ViewModels
         }
 
         /// <summary>
-        /// Utilizing this property instead of CanExecute in MvxCommand because apparently its not working (as of MvvmCross 6.2.3).
+        /// Utilizing this property instead of CanExecute in MvxCommand because apparently CanExecute is not yet supported (as of MvvmCross 6.2.3).
         /// </summary>
         /// <value><c>true</c> if can submit; otherwise, <c>false</c>.</value>
         public bool CanSubmit

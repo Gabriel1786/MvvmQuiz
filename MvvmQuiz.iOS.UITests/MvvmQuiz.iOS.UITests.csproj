@@ -7,7 +7,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>MvvmQuiz.iOS.UITests</RootNamespace>
     <AssemblyName>MvvmQuiz.iOS.UITests</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -24,20 +24,19 @@
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <ExternalConsole>false</ExternalConsole>
+    <Commandlineparameters></Commandlineparameters>
+    <RunWithWarnings>true</RunWithWarnings>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <LangVersion>Default</LangVersion>
+    <NoStdLib>false</NoStdLib>
+    <PlatformTarget>anycpu</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Tests.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="MvvmQuiz.iOS">
-      <Project>{F9C4BF1A-6709-46CA-AD06-12BE4107B464}</Project>
-      <Name>MvvmQuiz.iOS</Name>
-      <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
-      <Private>False</Private>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="NUnit">
