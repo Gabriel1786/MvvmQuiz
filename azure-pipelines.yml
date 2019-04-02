@@ -1,32 +1,108 @@
-# Xamarin.iOS
-# Build a Xamarin.iOS project.
+# Xamarin Forms
+# Build a multi-platform Xamarin project.
 # Add steps that install certificates, test, sign, and distribute an app, save build artifacts, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/xamarin
 
-trigger:
-- master
+jobs:
 
-pool:
-  vmImage: 'macOS-10.13'
+- job: iOS
+  pool:
+    vmImage: 'macOS-10.13'
 
-steps:
-# To manually select a Xamarin SDK version on the Microsoft-hosted macOS agent,
-# configure this task with the *Mono* version that is associated with the
-# Xamarin SDK version that you need, and set the "enabled" property to true.
-# See https://go.microsoft.com/fwlink/?linkid=871629
-- script: sudo rm -R /Applications/Xcode.app 
-- script: sudo mv /Applications/Xcode_10.1.app /Applications/Xcode.app 
-- script: sudo $AGENT_HOMEDIRECTORY/scripts/select-xamarin-sdk.sh 5_16_0
+  variables:
+    buildConfiguration: 'Release'
 
-- task: NuGetToolInstaller@0
+  steps:
+  - script: sudo rm -R /Applications/Xcode.app 
+  - script: sudo mv /Applications/Xcode_10.1.app /Applications/Xcode.app 
+  - script: sudo $AGENT_HOMEDIRECTORY/scripts/select-xamarin-sdk.sh 5_16_0
 
-- task: NuGetCommand@2
-  inputs:
-    restoreSolution: '**/*.sln'
+  - task: NuGetToolInstaller@0
 
-- task: XamariniOS@2
-  inputs:
-    solutionFile: '**/*.sln'
-    configuration: 'Release'
-    buildForSimulator: true
-    packageApp: false
+  - task: NuGetCommand@2
+    inputs:
+      restoreSolution: '**/*iOS.sln'
+
+  - task: XamariniOS@2
+    inputs:
+      solutionFile: '**/*iOS.sln'
+      configuration: '$(buildConfiguration)'
+      buildForSimulator: true
+      packageApp: false
+
+- job: Android
+  pool:
+    vmImage: 'VS2017-Win2016'
+
+  variables:
+    buildConfiguration: 'Release'
+    outputDirectory: '$(build.binariesDirectory)/$(buildConfiguration)'
+
+  steps:
+  - task: NuGetToolInstaller@0
+
+  - task: NuGetCommand@2
+    inputs:
+      restoreSolution: '**/*Droid.sln'
+
+  - task: XamarinAndroid@1
+    inputs:
+      projectFile: '**/*Droid.csproj'
+      outputDirectory: '$(outputDirectory)'
+      configuration: '$(buildConfiguration)'
+
+  - task: AndroidSigning@3
+    inputs:
+      apksign: false
+      zipalign: false
+      apkFiles: '$(outputDirectory)/*.apk'
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathtoPublish: '$(outputDirectory)'
+
+- job: MacOS
+  pool: 'macOS-10.13'
+
+  variables:
+    buildConfiguration: 'Release'
+
+  steps:
+  - task: NuGetToolInstaller@0
+
+  - task: NuGetCommand@2
+    inputs:
+      restoreSolution: '**/*macOS.sln'
+
+# Step disabled because there is no Xamarin.MacOS task... maybe someday?
+  - task: XamariniOS@2
+    enabled: false 
+    inputs:
+      solutionFile: '**/*macOS.sln'
+      configuration: '$(buildConfiguration)'
+      buildForSimulator: true
+      packageApp: false
+
+- job: UWP
+  pool: 
+    vmImage: 'VS2017-Win2016'
+
+  variables:
+    solution: '**/*UWP.sln'
+    buildPlatform: 'x86|x64|ARM'
+    buildConfiguration: 'Release'
+    appxPackageDir: '$(build.artifactStagingDirectory)/AppxPackages'
+
+  steps:
+  - task: NuGetToolInstaller@0
+
+  - task: NuGetCommand@2
+    inputs:
+      restoreSolution: '$(solution)'
+
+  - task: VSBuild@1
+    inputs:
+      platform: 'x86'
+      solution: '$(solution)'
+      configuration: '$(buildConfiguration)'
+      msbuildArgs: '/p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=StoreUpload /p:p:AppxPackageSigningEnabled=false'
