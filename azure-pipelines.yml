@@ -14,15 +14,9 @@ steps:
 # configure this task with the *Mono* version that is associated with the
 # Xamarin SDK version that you need, and set the "enabled" property to true.
 # See https://go.microsoft.com/fwlink/?linkid=871629
-
-- script: 
-XCODE=Xcode_10.1.app
-MONO=5_16_0
-sudo rm -R /Applications/Xcode.app
-sudo mv /Applications/$XCODE/Applications/Xcode.app
-sudo $AGENT_HOMEDIRECTORY/scripts/select-xamarin-sdk.sh $MONO
-  displayName: 'Select the Xamarin SDK version'
-  enabled: true
+- script: sudo rm -R /Applications/Xcode.app 
+- script: sudo mv /Applications/Xcode_10.1.app/Applications/Xcode.app 
+- script: sudo $AGENT_HOMEDIRECTORY/scripts/select-xamarin-sdk.sh 5_16_0
 
 - task: NuGetToolInstaller@0
 
