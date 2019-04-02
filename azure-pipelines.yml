@@ -62,7 +62,8 @@ jobs:
       pathtoPublish: '$(outputDirectory)'
 
 - job: MacOS
-  pool: 'macOS-10.13'
+  pool: 
+    vmImage: 'macos-10.13'
 
   variables:
     buildConfiguration: 'Release'
