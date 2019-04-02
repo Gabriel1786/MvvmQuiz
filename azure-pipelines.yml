@@ -101,7 +101,9 @@ jobs:
     inputs:
       restoreSolution: '$(solution)'
 
+# Step disabled because netstandard2.0 is not compatible with uap10.0.16299?? - must find out
   - task: VSBuild@1
+    enabled: false
     inputs:
       platform: 'x86'
       solution: '$(solution)'
