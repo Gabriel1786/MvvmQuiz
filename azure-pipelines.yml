@@ -69,16 +69,21 @@ jobs:
     buildConfiguration: 'Release'
 
   steps:
+  - script: sudo rm -R /Applications/Xcode.app 
+  - script: sudo mv /Applications/Xcode_10.1.app /Applications/Xcode.app 
+  - script: sudo $AGENT_HOMEDIRECTORY/scripts/select-xamarin-sdk.sh 5_16_0
+
   - task: NuGetToolInstaller@0
 
   - task: NuGetCommand@2
     inputs:
       restoreSolution: '**/*macOS.sln'
 
-  - task: Xcode@5
-    enabled: true 
+  - task: XamariniOS@2
     inputs:
-      actions: 'clean build'
+      solutionFile: '**/*macOS.sln'
+      configuration: '$(buildConfiguration)'
+      buildForSimulator: true
       packageApp: false
 
 - job: UWP
