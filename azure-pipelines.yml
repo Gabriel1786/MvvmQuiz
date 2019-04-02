@@ -75,13 +75,10 @@ jobs:
     inputs:
       restoreSolution: '**/*macOS.sln'
 
-# Step disabled because there is no Xamarin.MacOS task... maybe someday?
-  - task: XamariniOS@2
-    enabled: false 
+  - task: Xcode@5
+    enabled: true 
     inputs:
-      solutionFile: '**/*macOS.sln'
-      configuration: '$(buildConfiguration)'
-      buildForSimulator: true
+      actions: 'clean build'
       packageApp: false
 
 - job: UWP
