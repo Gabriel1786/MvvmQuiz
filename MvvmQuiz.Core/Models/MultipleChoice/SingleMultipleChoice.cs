@@ -4,13 +4,12 @@ using MvvmCross.ViewModels;
 
 namespace MvvmQuiz.Core.Models
 {
-    public class MultipleChoice : ObservableObject
+    /// <summary>
+    /// A multiple choice question with only 1 selectable answer.
+    /// </summary>
+    public class SingleMultipleChoice : MultipleChoice
     {
-        public string Question { get; set; }
-
         public string CorrectChoice { get; set; }
-
-        public List<Choice> Choices { get; set; }
 
         string _selectedChoice;
         public string SelectedChoice
@@ -22,10 +21,7 @@ namespace MvvmQuiz.Core.Models
                 {
                     if (choice.Text.Equals(value, StringComparison.InvariantCulture))
                     {
-                        if (choice.IsSelected)
-                            choice.IsSelected = false;
-                        else
-                            choice.IsSelected = true;
+                        choice.IsSelected = !choice.IsSelected;
                     }
                     else
                     {

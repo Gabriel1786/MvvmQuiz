@@ -11,8 +11,8 @@ namespace MvvmQuiz.Forms.UI.Components
 
             questionRadioGroup.DidSelect += (object sender, object e) => 
             {
-                System.Console.WriteLine("DidSelect event fired");
-                if (e is Choice choiceSelected && BindingContext is MultipleChoice multipleChoice)
+                //System.Console.WriteLine("DidSelect event fired");
+                if (e is Choice choiceSelected && BindingContext is SingleMultipleChoice multipleChoice)
                 {
                     multipleChoice.SelectedChoice = choiceSelected.Text;
                 }
@@ -23,7 +23,7 @@ namespace MvvmQuiz.Forms.UI.Components
         {
             base.OnBindingContextChanged();
 
-            System.Console.WriteLine("Cell did change context");
+            //System.Console.WriteLine("Cell did change context");
         }
     }
 }

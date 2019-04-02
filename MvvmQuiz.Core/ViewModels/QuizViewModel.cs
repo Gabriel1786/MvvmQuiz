@@ -28,8 +28,8 @@ namespace MvvmQuiz.Core.ViewModels
         }
 
         // MVVM Properties
-        MvxObservableCollection<MultipleChoice> _multipleChoices;
-        public MvxObservableCollection<MultipleChoice> MultipleChoices
+        MvxObservableCollection<SingleMultipleChoice> _multipleChoices;
+        public MvxObservableCollection<SingleMultipleChoice> MultipleChoices
         {
             get => _multipleChoices;
             set 
@@ -60,7 +60,7 @@ namespace MvvmQuiz.Core.ViewModels
             get => _quiz;
             set
             {
-                MultipleChoices = new MvxObservableCollection<MultipleChoice>(value.MultipleChoices);
+                MultipleChoices = new MvxObservableCollection<SingleMultipleChoice>(value.MultipleChoices);
                 SetProperty(ref _quiz, value);
             }
         }
@@ -112,15 +112,14 @@ namespace MvvmQuiz.Core.ViewModels
                     choice.IsSelected = false;
                 }
             }
-
             Console.WriteLine("Reset Tapped");
         }
 
         void MultipleChoices_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == nameof(MultipleChoice.SelectedChoice))
+            if (e.PropertyName == nameof(SingleMultipleChoice.SelectedChoice))
             {
-                Console.WriteLine("RaisePropertyChanged SelectedChoice");
+                //Console.WriteLine("RaisePropertyChanged SelectedChoice");
                 RaisePropertyChanged(nameof(CanSubmit));
             }
         }

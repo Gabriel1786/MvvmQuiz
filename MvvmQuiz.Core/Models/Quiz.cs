@@ -7,6 +7,6 @@ namespace MvvmQuiz.Core.Models
     {
         public QuizTheme Theme { get; set; }
 
-        public List<MultipleChoice> MultipleChoices { get; set; }
+        public List<SingleMultipleChoice> MultipleChoices { get; set; }
     }
 }

@@ -33,10 +33,10 @@ namespace MvvmQuiz.Core.UnitTests.ViewModels
         {
             var quiz = new Quiz
             {
-                MultipleChoices = new List<MultipleChoice>
+                MultipleChoices = new List<SingleMultipleChoice>
                 {
-                    new MultipleChoice { Choices = new List<Choice> { new Choice { Text = "Choice 1" }}, SelectedChoice = "SomeChoice" },
-                    new MultipleChoice { Choices = new List<Choice> { new Choice { Text = "Choice 1" }}, SelectedChoice = "SelectedChoice" }
+                    new SingleMultipleChoice { Choices = new List<Choice> { new Choice { Text = "Choice 1" }}, SelectedChoice = "SomeChoice" },
+                    new SingleMultipleChoice { Choices = new List<Choice> { new Choice { Text = "Choice 1" }}, SelectedChoice = "SelectedChoice" }
                 }
             };
 
@@ -51,10 +51,10 @@ namespace MvvmQuiz.Core.UnitTests.ViewModels
         {
             var quiz = new Quiz
             {
-                MultipleChoices = new List<MultipleChoice>
+                MultipleChoices = new List<SingleMultipleChoice>
                 {
-                    new MultipleChoice { Choices = new List<Choice> { new Choice { Text = "Choice 1" }}, SelectedChoice = "SomeChoice" },
-                    new MultipleChoice { Choices = new List<Choice> { new Choice { Text = "Choice 1" }}, SelectedChoice = null }
+                    new SingleMultipleChoice { Choices = new List<Choice> { new Choice { Text = "Choice 1" }}, SelectedChoice = "SomeChoice" },
+                    new SingleMultipleChoice { Choices = new List<Choice> { new Choice { Text = "Choice 1" }}, SelectedChoice = null }
                 }
             };
 
