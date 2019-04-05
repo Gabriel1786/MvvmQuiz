@@ -27,9 +27,15 @@ namespace MvvmQuiz.Core.ViewModels
             Quiz = await _quizService.GetQuiz(parameter);
         }
 
+        public override void ViewAppeared()
+        {
+            base.ViewAppeared();
+            RaisePropertyChanged(nameof(CanSubmit));
+        }
+
         // MVVM Properties
-        MvxObservableCollection<SingleMultipleChoice> _multipleChoices;
-        public MvxObservableCollection<SingleMultipleChoice> MultipleChoices
+        MvxObservableCollection<MultipleChoice> _multipleChoices;
+        public MvxObservableCollection<MultipleChoice> MultipleChoices
         {
             get => _multipleChoices;
             set 
@@ -60,7 +66,7 @@ namespace MvvmQuiz.Core.ViewModels
             get => _quiz;
             set
             {
-                MultipleChoices = new MvxObservableCollection<SingleMultipleChoice>(value.MultipleChoices);
+                MultipleChoices = new MvxObservableCollection<MultipleChoice>(value.MultipleChoices);
                 SetProperty(ref _quiz, value);
             }
         }
@@ -71,7 +77,7 @@ namespace MvvmQuiz.Core.ViewModels
         /// <value><c>true</c> if can submit; otherwise, <c>false</c>.</value>
         public bool CanSubmit
         {
-            get => InternalCanSubmit();
+            get => Quiz.CanSubmit();
         }
 
         // MVVM Commands
@@ -81,45 +87,21 @@ namespace MvvmQuiz.Core.ViewModels
         // Private Methods
         void Submit()
         {
-            if (!InternalCanSubmit())
+            if (!CanSubmit)
                 return;
 
-            
-        }
-
-        bool InternalCanSubmit()
-        {
-            if (MultipleChoices.Count == 0)
-                return false;
-
-            foreach (var multipleChoice in MultipleChoices)
-            {
-                if (string.IsNullOrEmpty(multipleChoice.SelectedChoice))
-                    return false;
-            }
-
-            return true;
+            //TODO: submit quiz
         }
 
         void Reset()
         {
-            foreach (var multipleChoice in MultipleChoices)
-            {
-                multipleChoice.SelectedChoice = null;
-
-                foreach (var choice in multipleChoice.Choices)
-                {
-                    choice.IsSelected = false;
-                }
-            }
-            Console.WriteLine("Reset Tapped");
+            Quiz.Reset();
         }
 
         void MultipleChoices_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             if (e.PropertyName == nameof(SingleMultipleChoice.SelectedChoice))
             {
-                //Console.WriteLine("RaisePropertyChanged SelectedChoice");
                 RaisePropertyChanged(nameof(CanSubmit));
             }
         }

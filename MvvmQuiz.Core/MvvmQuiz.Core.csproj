@@ -13,6 +13,7 @@
     <Folder Include="Extensions\" />
     <Folder Include="Models\Base\" />
     <Folder Include="Models\MultipleChoice\" />
+    <Folder Include="Services\Interfaces\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MvvmCross" Version="6.2.3" />

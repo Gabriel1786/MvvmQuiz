@@ -7,6 +7,28 @@ namespace MvvmQuiz.Core.Models
     {
         public QuizTheme Theme { get; set; }
 
-        public List<SingleMultipleChoice> MultipleChoices { get; set; }
+        public List<MultipleChoice> MultipleChoices { get; set; }
+
+        public bool CanSubmit()
+        {
+            if (MultipleChoices == null || MultipleChoices.Count == 0)
+                return false;
+
+            foreach (var multipleChoice in MultipleChoices)
+            {
+                if (!multipleChoice.CanSubmit())
+                    return false;
+            }
+
+            return true;
+        }
+
+        public void Reset()
+        {
+            foreach (var multipleChoice in MultipleChoices)
+            {
+                multipleChoice.Reset();
+            }
+        }
     }
 }

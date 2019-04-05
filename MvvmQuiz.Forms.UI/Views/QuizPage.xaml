@@ -40,8 +40,8 @@
             <StackLayout HeightRequest="60" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
                          BackgroundColor="Gray">
                 <Button VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
-                        Margin="5" IsEnabled="{Binding CanSubmit}"
-                        Text="Submit" Command="{Binding SubmitCommand}" BackgroundColor="White" />
+                        Margin="5" BackgroundColor="White" IsEnabled="{Binding CanSubmit}"
+                        Text="Submit" Command="{Binding SubmitCommand}" />
             </StackLayout>
         </ListView.Footer>
     </ListView>

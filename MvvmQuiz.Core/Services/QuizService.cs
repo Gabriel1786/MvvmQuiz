@@ -29,7 +29,7 @@ namespace MvvmQuiz.Core.Services
             var quiz = new Quiz
             {
                 Theme = QuizTheme.Celebrity,
-                MultipleChoices = new List<SingleMultipleChoice>
+                MultipleChoices = new List<MultipleChoice>
                 {
                     new SingleMultipleChoice
                     {
@@ -107,7 +107,7 @@ namespace MvvmQuiz.Core.Services
             var quiz = new Quiz
             {
                 Theme = QuizTheme.Country,
-                MultipleChoices = new List<SingleMultipleChoice>
+                MultipleChoices = new List<MultipleChoice>
                 {
                     new SingleMultipleChoice
                     {
@@ -128,7 +128,7 @@ namespace MvvmQuiz.Core.Services
             var quiz = new Quiz
             {
                 Theme = QuizTheme.Movie,
-                MultipleChoices = new List<SingleMultipleChoice>
+                MultipleChoices = new List<MultipleChoice>
                 {
                     new SingleMultipleChoice
                     {

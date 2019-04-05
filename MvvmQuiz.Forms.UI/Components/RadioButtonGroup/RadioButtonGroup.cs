@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using MvvmQuiz.Core.Models;
 using Xamarin.Forms;
 
 namespace MvvmQuiz.Forms.UI.Components
@@ -15,9 +13,11 @@ namespace MvvmQuiz.Forms.UI.Components
 
             if (child is View view)
             {
-                var tap = new TapGestureRecognizer();
-                tap.Command = new Command<View>(HandleTap);
-                tap.CommandParameter = view;
+                var tap = new TapGestureRecognizer
+                {
+                    Command = new Command<View>(HandleTap),
+                    CommandParameter = view
+                };
 
                 view.GestureRecognizers.Add(tap);
             }

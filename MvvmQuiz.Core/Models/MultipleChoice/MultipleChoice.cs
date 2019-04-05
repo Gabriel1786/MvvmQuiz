@@ -11,5 +11,8 @@ namespace MvvmQuiz.Core.Models
         public string Question { get; set; }
 
         public List<Choice> Choices { get; set; }
+
+        public abstract bool CanSubmit();
+        public abstract void Reset();
     }
 }

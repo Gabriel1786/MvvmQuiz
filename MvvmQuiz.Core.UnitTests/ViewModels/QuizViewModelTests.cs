@@ -33,7 +33,7 @@ namespace MvvmQuiz.Core.UnitTests.ViewModels
         {
             var quiz = new Quiz
             {
-                MultipleChoices = new List<SingleMultipleChoice>
+                MultipleChoices = new List<MultipleChoice>
                 {
                     new SingleMultipleChoice { Choices = new List<Choice> { new Choice { Text = "Choice 1" }}, SelectedChoice = "SomeChoice" },
                     new SingleMultipleChoice { Choices = new List<Choice> { new Choice { Text = "Choice 1" }}, SelectedChoice = "SelectedChoice" }
@@ -51,7 +51,7 @@ namespace MvvmQuiz.Core.UnitTests.ViewModels
         {
             var quiz = new Quiz
             {
-                MultipleChoices = new List<SingleMultipleChoice>
+                MultipleChoices = new List<MultipleChoice>
                 {
                     new SingleMultipleChoice { Choices = new List<Choice> { new Choice { Text = "Choice 1" }}, SelectedChoice = "SomeChoice" },
                     new SingleMultipleChoice { Choices = new List<Choice> { new Choice { Text = "Choice 1" }}, SelectedChoice = null }

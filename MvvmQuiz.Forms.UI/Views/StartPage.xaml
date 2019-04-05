@@ -17,7 +17,7 @@
             <Button Text="Country Quiz" Style="{StaticResource StartPageButtonStyle}"
                     Command="{mvx:MvxBind ShowQuizViewModelCommand}" 
                     CommandParameter="{x:Static local:QuizTheme.Country}" />
-            <Button Text="Celebrity Quiz" AutomationId="celebrityStartQuizButton" Style="{StaticResource StartPageButtonStyle}"
+            <Button Text="Celebrity Quiz" Style="{StaticResource StartPageButtonStyle}" AutomationId="celebrityStartQuizButton"
                     Command="{mvx:MvxBind ShowQuizViewModelCommand}" 
                     CommandParameter="{x:Static local:QuizTheme.Celebrity}" />
             <Button Text="High Scores" Style="{StaticResource StartPageButtonStyle}"

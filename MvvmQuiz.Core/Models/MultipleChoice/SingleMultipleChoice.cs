@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using MvvmCross.ViewModels;
 
 namespace MvvmQuiz.Core.Models
 {
@@ -19,7 +17,7 @@ namespace MvvmQuiz.Core.Models
             {
                 foreach (var choice in Choices)
                 {
-                    if (choice.Text.Equals(value, StringComparison.InvariantCulture))
+                    if (choice.Text?.Equals(value, StringComparison.InvariantCulture) == true)
                     {
                         choice.IsSelected = !choice.IsSelected;
                     }
@@ -29,7 +27,7 @@ namespace MvvmQuiz.Core.Models
                     }
                 }
 
-                if (_selectedChoice != null && _selectedChoice.Equals(value, StringComparison.InvariantCulture))
+                if (_selectedChoice?.Equals(value, StringComparison.InvariantCulture) == true)
                     value = null;
 
                 SetProperty(ref _selectedChoice, value);
@@ -39,6 +37,16 @@ namespace MvvmQuiz.Core.Models
         public bool IsCorrectChoice()
         {
             return CorrectChoice.Equals(SelectedChoice, StringComparison.InvariantCulture);
+        }
+
+        public override bool CanSubmit()
+        {
+            return !string.IsNullOrEmpty(SelectedChoice);
+        }
+
+        public override void Reset()
+        {
+            SelectedChoice = null;
         }
     }
 }

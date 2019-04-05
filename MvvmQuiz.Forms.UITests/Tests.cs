@@ -21,7 +21,23 @@ namespace MvvmQuiz.Forms.UITests
         [SetUp]
         public void BeforeEachTest()
         {
-            app = AppInitializer.StartApp(platform);
+            if (platform == Platform.Android)
+            {
+                app = ConfigureApp.Android
+                    .EnableLocalScreenshots()
+                    .PreferIdeSettings()
+                    .ApkFile("../../../../MvvmQuiz.Droid/bin/Release/MvvmQuiz_Droid.MvvmQuiz_Droid.apk")
+                    .StartApp();
+            }
+            else if (platform == Platform.iOS)
+            {
+                app = ConfigureApp.iOS
+                    .EnableLocalScreenshots()
+                    .PreferIdeSettings()
+                    .DeviceIdentifier("4F07B452-73F0-4B58-80C7-226DF1DC4417") //TODO: how to detect simulator dynamically?
+                    .AppBundle("../../../../MvvmQuiz.iOS/bin/iPhoneSimulator/Debug/MvvmQuiz.iOS.app")
+                    .StartApp(Xamarin.UITest.Configuration.AppDataMode.Auto);
+            }
         }
 
         [Test]
@@ -40,8 +56,6 @@ namespace MvvmQuiz.Forms.UITests
         [Test]
         public void NavigatesToCelebrityQuiz()
         {
-            app.Repl();
-
             app.Tap(c => c.Marked("celebrityStartQuizButton"));
 
             AppResult[] result = app.Query(c => c.Marked("questionListView"));
