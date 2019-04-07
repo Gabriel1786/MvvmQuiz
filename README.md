@@ -10,6 +10,8 @@ Android -
 UWP - 
 [![Build status](https://build.appcenter.ms/v0.1/apps/d515e30d-7f53-414f-a964-fa323bf5fdb4/branches/appcenter/badge)](https://appcenter.ms)
 
+macOS - WIP
+
 # MvvmQuiz
 A fictitious simple Quiz App that utilizes the MvvmCross framework to build in Android, iOS, macOS e UWP.
 
