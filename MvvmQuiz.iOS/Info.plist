@@ -5,13 +5,13 @@
 	<key>CFBundleName</key>
 	<string>MvvmQuiz</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.gabrielhartog.MvvmQuiz-iOS</string>
+	<string>com.gabrielhartog.MvvmQuiz.iOS</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
-	<string>12.1</string>
+	<string>10.0</string>
 	<key>UIDeviceFamily</key>
 	<array>
 		<integer>1</integer>
@@ -34,5 +34,24 @@
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>OAuthGoogleScheme</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>$$GoogleCustomScheme$$</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>OAuthFacebookScheme</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>$$FacebookCustomScheme$$</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>

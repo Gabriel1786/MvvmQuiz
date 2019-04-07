@@ -15,6 +15,7 @@ namespace MvvmQuiz.Core.ViewModels
 
             ShowQuizViewModelCommand = new MvxAsyncCommand<QuizTheme>(ShowQuizViewModel, null, allowConcurrentExecutions: true);
             ShowHighScoreViewModelCommand = new MvxAsyncCommand(ShowHighScoreViewModel);
+            ShowLoginViewModelCommand = new MvxAsyncCommand(ShowLoginViewModel);
         }
 
         // MvvmCross Lifecycle
@@ -24,6 +25,7 @@ namespace MvvmQuiz.Core.ViewModels
         // MVVM Commands
         public IMvxAsyncCommand<QuizTheme> ShowQuizViewModelCommand { get; }
         public IMvxAsyncCommand ShowHighScoreViewModelCommand { get; }
+        public IMvxAsyncCommand ShowLoginViewModelCommand { get; }
 
         // Private Methods
         private async Task ShowQuizViewModel(QuizTheme theme)
@@ -34,6 +36,11 @@ namespace MvvmQuiz.Core.ViewModels
         private async Task ShowHighScoreViewModel()
         {
             await _navigationService.Navigate<HighScoreViewModel>();
+        }
+
+        private async Task ShowLoginViewModel()
+        {
+            await _navigationService.Navigate<LoginViewModel>();
         }
     }
 }

@@ -6,7 +6,17 @@ using MvvmQuiz.Core.Models;
 
 namespace MvvmQuiz.Core.Services
 {
-    public class QuizService : IQuizService
+    // REAL
+    public class QuizService //: IQuizService
+    {
+        public Task<Quiz> GetQuiz(QuizTheme theme)
+        {
+            return null;
+        }
+    }
+
+    // MOCK
+    public class MockQuizService : IQuizService
     {
         public Task<Quiz> GetQuiz(QuizTheme theme)
         {
@@ -145,7 +155,7 @@ namespace MvvmQuiz.Core.Services
         }
 
         private void ShuffleQuestionsAndAnswers(Quiz quiz)
-        { 
+        {
             foreach (var multipleChoice in quiz.MultipleChoices)
             {
                 multipleChoice.Choices.Shuffle();
