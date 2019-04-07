@@ -43,6 +43,8 @@
 			<array>
 				<string>$$GoogleCustomScheme$$</string>
 			</array>
+			<key>CFBundleURLTypes</key>
+			<string>Viewer</string>
 		</dict>
 		<dict>
 			<key>CFBundleURLName</key>
@@ -51,6 +53,8 @@
 			<array>
 				<string>$$FacebookCustomScheme$$</string>
 			</array>
+			<key>CFBundleURLTypes</key>
+			<string>Viewer</string>
 		</dict>
 	</array>
 </dict>

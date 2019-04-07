@@ -11,6 +11,8 @@
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
     <MobileBuildToolsDebug>true</MobileBuildToolsDebug>
+    <BuildResourcesDirectoryName>MvvmQuiz.iOS</BuildResourcesDirectoryName>
+    <InfoPlistTemplateName>TemplateInfo.plist</InfoPlistTemplateName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -116,6 +118,7 @@
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
     <None Include="secrets.json" />
+    <None Include="TemplateInfo.plist" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
