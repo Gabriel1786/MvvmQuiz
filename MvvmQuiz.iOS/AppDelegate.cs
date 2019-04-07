@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Foundation;
 using MvvmCross;
 using MvvmCross.Forms.Platforms.Ios.Core;
@@ -40,7 +41,7 @@ namespace MvvmQuiz.iOS
         {
             AppConfigurations.GoogleClientId = Secrets.GoogleClientId;
             AppConfigurations.FirebaseApiKey = Secrets.FirebaseApiKey;
-            AppConfigurations.FacebookAppId = Secrets.FacebookAppId;
+            AppConfigurations.FacebookAppId = Secrets.FacebookAppId.Split('.').ToList().Last(); //HACK: added a . because AppCenter converts to int and bugs everything, must remove . runtime
             AppConfigurations.FacebookRedirectUrl = Secrets.FacebookCustomScheme;
             AppConfigurations.GoogleRedirectUrl = Secrets.GoogleCustomScheme;
         }

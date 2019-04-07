@@ -4,6 +4,7 @@ using Android.Content.PM;
 using MvvmCross.Forms.Platforms.Android.Views;
 using MvvmQuiz.Core;
 using MvvmQuiz.Droid.Helpers;
+using System.Linq;
 
 namespace MvvmQuiz.Droid
 {
@@ -31,7 +32,7 @@ namespace MvvmQuiz.Droid
         {
             AppConfigurations.GoogleClientId = Secrets.GoogleClientId;
             AppConfigurations.FirebaseApiKey = Secrets.FirebaseApiKey;
-            AppConfigurations.FacebookAppId = Secrets.FacebookAppId;
+            AppConfigurations.FacebookAppId = Secrets.FacebookAppId.Split('.').ToList().Last(); //HACK: added a . because AppCenter converts to int and bugs everything, must remove . runtime
             AppConfigurations.FacebookRedirectUrl = Secrets.FacebookCustomScheme;
             AppConfigurations.GoogleRedirectUrl = Secrets.GoogleCustomScheme;
         }
