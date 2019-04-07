@@ -27,7 +27,7 @@ namespace MvvmQuiz.macOS
         {
             AppConfigurations.GoogleClientId = Secrets.GoogleClientId;
             AppConfigurations.FirebaseApiKey = Secrets.FirebaseApiKey;
-            AppConfigurations.FacebookAppId = Secrets.FacebookAppId.Split('.').ToList().Last(); //HACK: added a . because AppCenter converts to int and bugs everything, must remove . runtime
+            AppConfigurations.FacebookAppId = Secrets.FacebookAppId.ToString().Split('.').ToList().Last(); //HACK: added a . because AppCenter converts to int and bugs everything, must remove . runtime
             AppConfigurations.FacebookRedirectUrl = Secrets.FacebookCustomScheme;
             AppConfigurations.GoogleRedirectUrl = Secrets.GoogleCustomScheme;
         }
