@@ -42,3 +42,6 @@ Thumbs.db
 
 secrets.json
 Secrets.cs
+
+google-services.json
+GoogleService-Info.plist
