@@ -17,7 +17,7 @@ jobs:
 
   - task: NuGetCommand@2
     inputs:
-      restoreSolution: '**/MvvmQuiz.sln'
+      restoreSolution: '**/*UnitTests.sln'
 
   - task: VSTest@2
     inputs:
