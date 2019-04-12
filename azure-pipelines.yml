@@ -5,7 +5,63 @@
 
 jobs:
 
+- job: UnitTests
+  pool:
+    vmImage: 'VS2017-Win2016'
+
+  variables:
+    buildConfiguration: 'Release'  
+
+  steps:
+  - task: NuGetToolInstaller@0
+
+  - task: NuGetCommand@2
+    inputs:
+      restoreSolution: '**/MvvmQuiz.sln'
+
+  - task: VSTest@2
+    inputs:
+      testSelector: 'testRun'
+      #testAssemblyVer2: '**\*test*.dll!**\*TestAdapter.dll!**\obj\**' # Required when testSelector == TestAssemblies
+      #testPlan: # Required when testSelector == TestPlan
+      #testSuite: # Required when testSelector == TestPlan
+      #testConfiguration: # Required when testSelector == TestPlan
+      #tcmTestRun: '$(test.RunId)' # Optional
+      #searchFolder: '$(System.DefaultWorkingDirectory)' 
+      #testFiltercriteria: # Optional
+      #runOnlyImpactedTests: False # Optional
+      #runAllTestsAfterXBuilds: '50' # Optional
+      uiTests: false
+      #vstestLocationMethod: 'version' # Optional. Options: version, location
+      #vsTestVersion: 'latest' # Optional. Options: latest, 16.0, 15.0, 14.0, toolsInstaller
+      #vstestLocation: # Optional
+      #runSettingsFile: # Optional
+      #overrideTestrunParameters: # Optional
+      #pathtoCustomTestAdapters: # Optional
+      #runInParallel: False # Optional
+      #runTestsInIsolation: False # Optional
+      #codeCoverageEnabled: False # Optional
+      #otherConsoleOptions: # Optional
+      #distributionBatchType: 'basedOnTestCases' # Optional. Options: basedOnTestCases, basedOnExecutionTime, basedOnAssembly
+      #batchingBasedOnAgentsOption: 'autoBatchSize' # Optional. Options: autoBatchSize, customBatchSize
+      #customBatchSizeValue: '10' # Required when distributionBatchType == BasedOnTestCases && BatchingBasedOnAgentsOption == CustomBatchSize
+      #batchingBasedOnExecutionTimeOption: 'autoBatchSize' # Optional. Options: autoBatchSize, customTimeBatchSize
+      #customRunTimePerBatchValue: '60' # Required when distributionBatchType == BasedOnExecutionTime && BatchingBasedOnExecutionTimeOption == CustomTimeBatchSize
+      #dontDistribute: False # Optional
+      #testRunTitle: # Optional
+      #platform: # Optional
+      configuration: '$(buildConfiguration)'
+      #publishRunAttachments: true # Optional
+      #diagnosticsEnabled: True # Optional
+      #collectDumpOn: 'onAbortOnly' # Optional. Options: onAbortOnly, always, never
+      #rerunFailedTests: False # Optional
+      #rerunType: 'basedOnTestFailurePercentage' # Optional. Options: basedOnTestFailurePercentage, basedOnTestFailureCount
+      #rerunFailedThreshold: '30' # Optional
+      #rerunFailedTestCasesMaxLimit: '5' # Optional
+      #rerunMaxAttempts: '3' # Optional
+
 - job: iOS
+  dependsOn: UnitTests
   pool:
     vmImage: 'macOS-10.13'
 
@@ -31,6 +87,7 @@ jobs:
       packageApp: false
 
 - job: Android
+  dependsOn: UnitTests
   pool:
     vmImage: 'VS2017-Win2016'
 
@@ -61,7 +118,10 @@ jobs:
     inputs:
       pathtoPublish: '$(outputDirectory)'
 
+# Step disabled
 - job: MacOS
+  dependsOn: UnitTests
+  condition: false
   pool: 
     vmImage: 'macos-10.13'
 
@@ -86,7 +146,10 @@ jobs:
       buildForSimulator: true
       packageApp: false
 
+# Step disabled because netstandard2.0 is not compatible with uap10.0.16299?? - must find out
 - job: UWP
+  condition: false
+  dependsOn: UnitTests
   pool: 
     vmImage: 'VS2017-Win2016'
 
@@ -103,9 +166,7 @@ jobs:
     inputs:
       restoreSolution: '$(solution)'
 
-# Step disabled because netstandard2.0 is not compatible with uap10.0.16299?? - must find out
   - task: VSBuild@1
-    enabled: false
     inputs:
       platform: 'x86'
       solution: '$(solution)'
