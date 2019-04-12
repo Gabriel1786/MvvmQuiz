@@ -21,8 +21,8 @@ jobs:
 
   - task: VSTest@2
     inputs:
-      testSelector: 'testRun'
-      #testAssemblyVer2: '**\*test*.dll!**\*TestAdapter.dll!**\obj\**' # Required when testSelector == TestAssemblies
+      testSelector: 'testAssemblies'
+      testAssemblyVer2: '/MvvmQuiz.Core.UnitTests/obj/$(buildConfiguration)/net461/*UnitTests.dll' # Required when testSelector == TestAssemblies
       #testPlan: # Required when testSelector == TestPlan
       #testSuite: # Required when testSelector == TestPlan
       #testConfiguration: # Required when testSelector == TestPlan
