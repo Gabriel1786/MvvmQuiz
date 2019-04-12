@@ -15,4 +15,24 @@ macOS - WIP
 # MvvmQuiz
 A fictitious simple Quiz App that utilizes the MvvmCross framework to build in Android, iOS, macOS e UWP.
 
-Learning how to utilize Azure DevOps to automate this project's lifecycle.
+
+
+
+## How to build
+This project will not build correctly right after cloning. This is because I am utilizing Mobile.BuildTools to inject my 'secrets' into my source code during build. With this I am able to keep sensitive information out of my source control.
+In order to fix this and make it buildable, you must add a new file into each project (iOS, Android, macOS and UWP) at the root level called 'secrets.json'. 
+
+Populate each file with this json:
+```
+{
+  "FirebaseApiKey": "",
+  "FacebookAppId": "",
+  "GoogleClientId": "",
+  "GoogleCustomScheme": "",
+  "FacebookCustomScheme": "",
+  "AppCenterSecret": ""
+}
+```
+
+Since you are not providing the real values, OAuth login will not function.
+
