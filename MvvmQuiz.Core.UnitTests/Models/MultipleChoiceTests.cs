@@ -9,15 +9,16 @@ namespace MvvmQuiz.Core.UnitTests.Models
     [TestFixture]
     public class MultipleChoiceTests : MvxIoCSupportingTest
     {
-        [SetUp]
         protected override void AdditionalSetup()
         {
-            base.AdditionalSetup();
+
         }
 
         [Test, Description("UseCase: SingleMultipleChoice model if set same SelectedChoice will mark it as unselected.")]
         public void SelectedChoice_UnselectsChoiceIfAlreadySelected_ReturnsTrue()
         {
+            base.Setup();
+
             var selectedChoice = "SomeChoice";
             var choice = new Choice { Text = selectedChoice };
             var singleMultipleChoice = new SingleMultipleChoice { Choices = new List<Choice> { choice } };

@@ -1,4 +1,5 @@
-﻿using MvvmCross.IoC;
+﻿using System.Linq;
+using MvvmCross.IoC;
 using MvvmCross.ViewModels;
 
 namespace MvvmQuiz.Core
@@ -7,10 +8,13 @@ namespace MvvmQuiz.Core
     {
         public override void Initialize()
         {
-            CreatableTypes()
+            var services = CreatableTypes()
                 .EndingWith("Service")
-                .AsInterfaces()
-                .RegisterAsLazySingleton();
+                .AsInterfaces();
+
+            var servicesList = services.ToList();
+
+            services.RegisterAsLazySingleton();
 
             RegisterCustomAppStart<AppStart>();
         }

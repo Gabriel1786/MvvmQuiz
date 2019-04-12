@@ -34,9 +34,9 @@ namespace MvvmQuiz.Forms.UITests
                 app = ConfigureApp.iOS
                     .EnableLocalScreenshots()
                     .PreferIdeSettings()
-                    .DeviceIdentifier("AFCEF309-F1E6-4966-AE48-50DBAFC96AF9") //TODO: how to detect simulator dynamically?
+                    .DeviceIdentifier("4F07B452-73F0-4B58-80C7-226DF1DC4417") //TODO: how to detect simulator dynamically?
                     .AppBundle("../../../../MvvmQuiz.iOS/bin/iPhoneSimulator/Debug/MvvmQuiz.iOS.app")
-                    .StartApp(Xamarin.UITest.Configuration.AppDataMode.Auto);
+                    .StartApp(Xamarin.UITest.Configuration.AppDataMode.DoNotClear);
             }
         }
 

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Moq;
+using MvvmCross;
+using MvvmCross.IoC;
 using MvvmCross.Navigation;
 using MvvmCross.Tests;
 using MvvmQuiz.Core.Models;
@@ -17,20 +19,18 @@ namespace MvvmQuiz.Core.UnitTests.ViewModels
         Mock<IMvxNavigationService> _mvxNavigationService;
         Mock<IQuizService> _quizService;
 
-        [SetUp]
         protected override void AdditionalSetup()
         {
-            base.AdditionalSetup();
-
             _mvxNavigationService = new Mock<IMvxNavigationService>();
             _quizService = new Mock<IQuizService>();
-
             _quizViewModel = new QuizViewModel(_mvxNavigationService.Object, _quizService.Object);
         }
 
         [Test, Description("UseCase: A user may submit a quiz with all questions answered.")]
         public void CanSubmit_MultipleChoicesFullyFilled_ReturnsTrue()
         {
+            base.Setup();
+
             var quiz = new Quiz
             {
                 MultipleChoices = new List<MultipleChoice>
@@ -49,6 +49,8 @@ namespace MvvmQuiz.Core.UnitTests.ViewModels
         [Test, Description("UseCase: A user may not submit a quiz with unanswered questions.")]
         public void CanSubmit_MultipleChoicesPartiallyFilled_ReturnsFalse()
         {
+            base.Setup();
+
             var quiz = new Quiz
             {
                 MultipleChoices = new List<MultipleChoice>

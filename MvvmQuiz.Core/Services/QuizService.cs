@@ -6,7 +6,7 @@ using MvvmQuiz.Core.Models;
 
 namespace MvvmQuiz.Core.Services
 {
-    // REAL
+    #region Firebase
     public class QuizService //: IQuizService
     {
         public Task<Quiz> GetQuiz(QuizTheme theme)
@@ -14,8 +14,9 @@ namespace MvvmQuiz.Core.Services
             return null;
         }
     }
+    #endregion
 
-    // MOCK
+    #region Mock
     public class MockQuizService : IQuizService
     {
         public Task<Quiz> GetQuiz(QuizTheme theme)
@@ -164,4 +165,5 @@ namespace MvvmQuiz.Core.Services
             quiz.MultipleChoices.Shuffle();
         }
     }
+    #endregion
 }
