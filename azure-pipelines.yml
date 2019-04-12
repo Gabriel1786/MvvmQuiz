@@ -22,7 +22,7 @@ jobs:
   - task: VSTest@2
     inputs:
       testSelector: 'testAssemblies'
-      testAssemblyVer2: '/MvvmQuiz.Core.UnitTests/obj/$(buildConfiguration)/net461/*UnitTests.dll' # Required when testSelector == TestAssemblies
+      testAssemblyVer2: '/MvvmQuiz.Core.UnitTests/obj/$(buildConfiguration)/net461/MvvmQuiz.Core.UnitTests.dll' # Required when testSelector == TestAssemblies
       #testPlan: # Required when testSelector == TestPlan
       #testSuite: # Required when testSelector == TestPlan
       #testConfiguration: # Required when testSelector == TestPlan
