@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using MvvmCross.Commands;
 using MvvmCross.Navigation;
 using MvvmCross.ViewModels;
@@ -7,7 +8,7 @@ using MvvmQuiz.Core.Services;
 
 namespace MvvmQuiz.Core.ViewModels
 {
-    public class QuizViewModel : BaseViewModel, IMvxViewModel<QuizTheme>
+    public class QuizViewModel : BaseViewModel, IMvxViewModel<Quiz>
     {
         readonly IMvxNavigationService _navigationService;
         readonly IQuizService _quizService;
@@ -22,9 +23,9 @@ namespace MvvmQuiz.Core.ViewModels
         }
 
         // MvvmCross Lifecycle
-        async void IMvxViewModel<QuizTheme>.Prepare(QuizTheme parameter)
+        void IMvxViewModel<Quiz>.Prepare(Quiz parameter)
         {
-            Quiz = await _quizService.GetQuiz(parameter);
+            Quiz = parameter;
         }
 
         public override void ViewAppeared()

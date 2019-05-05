@@ -1,0 +1,131 @@
+{
+  "multipleChoices": [
+    {
+      "choices": [
+        {
+          "text": "Hugh Jackman"
+        },
+        {
+          "text": "Jason Lee"
+        },
+        {
+          "text": "Matthew McConaughey"
+        },
+        {
+          "text": "Ben Affleck"
+        }
+      ],
+      "correctChoice": "Jason Lee",
+      "question": "He shocked the industry when he named his first child Pilot Inspektor."
+    },
+    {
+      "choices": [
+        {
+          "text": "Kim Kardashian"
+        },
+        {
+          "text": "Christina Aguilera"
+        },
+        {
+          "text": "Miley Cyrus"
+        },
+        {
+          "text": "Julianne Hough"
+        }
+      ],
+      "correctChoice": "Julianne Hough",
+      "question": "She faced major criticism for wearing blackface to dress up as Crazy Eyes from \"Orange Is the New Black\" for Halloween in 2013."
+    },
+    {
+      "choices": [
+        {
+          "text": "Kristen Stewart"
+        },
+        {
+          "text": "Jennifer Lawrence"
+        },
+        {
+          "text": "Blake Lively"
+        },
+        {
+          "text": "Scarlett Johansson"
+        }
+      ],
+      "correctChoice": "Kristen Stewart",
+      "question": "This actress was caught cheating on her longtime boyfriend with the married director of a film she starred in."
+    },
+    {
+      "choices": [
+        {
+          "text": "Aaliyah"
+        },
+        {
+          "text": "Amy Winehouse"
+        },
+        {
+          "text": "Whitney Houston"
+        },
+        {
+          "text": "Selena"
+        }
+      ],
+      "correctChoice": "Whitney Houston",
+      "question": "On the eve of the 2012 Grammy Awards, this singer died of a drug overdose."
+    },
+    {
+      "choices": [
+        {
+          "text": "Justin Bieber"
+        },
+        {
+          "text": "Harry Styles"
+        },
+        {
+          "text": "Usher"
+        },
+        {
+          "text": "Chris Brown"
+        }
+      ],
+      "correctChoice": "Justin Bieber",
+      "question": "He stripped down to his boxers on stage at the 2014 Fashion Rocks and received nothing but boos."
+    },
+    {
+      "choices": [
+        {
+          "text": "Lindsay Lohan"
+        },
+        {
+          "text": "Paris Hilton"
+        },
+        {
+          "text": "Reese Witherspoon"
+        },
+        {
+          "text": "Jessica Simpson"
+        }
+      ],
+      "correctChoice": "Reese Witherspoon",
+      "question": "This actress was arrested on a disorderly conduct charge after refusing to stay in her car while her husband was given a sobriety test."
+    },
+    {
+      "choices": [
+        {
+          "text": "Adam Levine"
+        },
+        {
+          "text": "Dave Franco"
+        },
+        {
+          "text": "Zach Efron"
+        },
+        {
+          "text": "James Franco"
+        }
+      ],
+      "correctChoice": "James Franco",
+      "question": "He found himself at the center of a scandal when a 17-year-old fan claimed this actor arranged to meet her at a hotel room after they exchanged messages on Instagram."
+    }
+  ],
+  "theme": 2
+}

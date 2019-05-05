@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using Firebase.Auth;
+using MvvmQuiz.Core.Models;
+using MvvmQuiz.Core.Utils;
 using Xamarin.Auth;
 
 namespace MvvmQuiz.Core.Services
@@ -10,9 +10,9 @@ namespace MvvmQuiz.Core.Services
     {
         public OAuth2Authenticator Authenticator { get; set; }
 
-        public Task<bool> FacebookLogin()
+        public Task<User> FacebookLogin()
         {
-            var taskResult = new TaskCompletionSource<bool>();
+            var taskResult = new TaskCompletionSource<User>();
 
             try
             {
@@ -20,7 +20,7 @@ namespace MvvmQuiz.Core.Services
                     clientId: AppConfigurations.FacebookAppId,
                     //: null,
                     scope: "public_profile, email",
-                    authorizeUrl: new Uri("https://www.facebook.com/v2.9/dialog/oauth"),
+                    authorizeUrl: new Uri("https://www.facebook.com/v3.3/dialog/oauth"),
                     redirectUrl: new Uri($"{AppConfigurations.FacebookRedirectUrl}://authorize"),
                     //accessTokenUrl: new Uri("https://graph.facebook.com/oauth/access_token"),
                     getUsernameAsync: null,
@@ -36,12 +36,12 @@ namespace MvvmQuiz.Core.Services
                         if (e.IsAuthenticated)
                         {
                             var accessToken = e.Account.Properties["access_token"];
-                            var firebaseLoginResult = await LoginFirebase(accessToken, FirebaseAuthType.Facebook);
+                            var firebaseLoginResult = await LoginFirebase(accessToken, Firebase.Auth.FirebaseAuthType.Facebook);
                             taskResult.SetResult(firebaseLoginResult);
                         }
                         else
                         {
-                            taskResult.SetResult(false);
+                            taskResult.SetResult(null);
                         }
                     }
                     catch (Exception ex)
@@ -58,9 +58,9 @@ namespace MvvmQuiz.Core.Services
             return taskResult.Task;
         }
 
-        public Task<bool> GoogleLogin()
+        public Task<User> GoogleLogin()
         {
-            var taskResult = new TaskCompletionSource<bool>();
+            var taskResult = new TaskCompletionSource<User>();
 
             try
             {
@@ -84,12 +84,12 @@ namespace MvvmQuiz.Core.Services
                         if (e.IsAuthenticated)
                         {
                             var accessToken = e.Account.Properties["access_token"];
-                            var firebaseLoginResult = await LoginFirebase(accessToken, FirebaseAuthType.Google);
+                            var firebaseLoginResult = await LoginFirebase(accessToken, Firebase.Auth.FirebaseAuthType.Google);
                             taskResult.SetResult(firebaseLoginResult);
                         }
                         else
                         {
-                            taskResult.SetResult(false);
+                            taskResult.SetResult(null);
                         }
                     }
                     catch (Exception ex)
@@ -106,17 +106,29 @@ namespace MvvmQuiz.Core.Services
             return taskResult.Task;
         }
 
-        async Task<bool> LoginFirebase(string token, FirebaseAuthType firebaseAuthType)
+        public async Task<User> LoginFirebase(string token, Firebase.Auth.FirebaseAuthType firebaseAuthType)
         {
-            var authProvider = new FirebaseAuthProvider(new FirebaseConfig(AppConfigurations.FirebaseApiKey));
+            var authProvider = new Firebase.Auth.FirebaseAuthProvider(new Firebase.Auth.FirebaseConfig(AppConfigurations.FirebaseApiKey));
             var auth = await authProvider.SignInWithOAuthAsync(firebaseAuthType, token);
-
-            if (auth != null)
+            if (auth == null)
             {
-                Console.WriteLine($"Logged in as {auth.User.DisplayName ?? auth.User.FirstName ?? auth.User.LastName}");
+                return null;
             }
 
-            return auth != null;
+            var authResult = new AuthResult { AccessToken = token, AuthType = firebaseAuthType, Auth = auth };
+            PreferencesHelpers.Set(Constants.AUTH_RESULT, authResult);
+
+            var user = new User
+            {
+                Id = auth.User.LocalId,
+                FirstName = auth.User.FirstName,
+                LastName = auth.User.LastName,
+                PhotoUrl = auth.User.PhotoUrl
+            };
+
+            Console.WriteLine($"Logged in as {auth.User.DisplayName ?? auth.User.FirstName ?? auth.User.LastName}");
+
+            return user;
         }
     }
 }

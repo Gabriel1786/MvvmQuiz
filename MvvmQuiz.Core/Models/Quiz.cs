@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace MvvmQuiz.Core.Models
 {
@@ -7,7 +8,7 @@ namespace MvvmQuiz.Core.Models
     {
         public QuizTheme Theme { get; set; }
 
-        public List<MultipleChoice> MultipleChoices { get; set; }
+        public List<SingleMultipleChoice> MultipleChoices { get; set; }
 
         public bool CanSubmit()
         {

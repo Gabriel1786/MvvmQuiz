@@ -22,7 +22,7 @@
                     CommandParameter="{x:Static local:QuizTheme.Celebrity}" />
             <Button Text="High Scores" Style="{StaticResource StartPageButtonStyle}"
                     Command="{mvx:MvxBind ShowHighScoreViewModelCommand}" />
-            <Button Text="Login" Style="{StaticResource StartPageButtonStyle}"
+            <Button Text="{Binding LoginButtonTitle}" Style="{StaticResource StartPageButtonStyle}"
                     Command="{mvx:MvxBind ShowLoginViewModelCommand}" />
         </StackLayout>
     </StackLayout>

@@ -1,23 +1,61 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using Firebase.Database.Query;
+using MvvmCross;
 using MvvmQuiz.Core.Extensions;
 using MvvmQuiz.Core.Models;
+using MvvmQuiz.Core.Services.Interfaces;
+using Newtonsoft.Json;
 
 namespace MvvmQuiz.Core.Services
 {
     #region Firebase
-    public class QuizService //: IQuizService
+    public class QuizService : IQuizService
     {
-        public Task<Quiz> GetQuiz(QuizTheme theme)
+        readonly IClientService _clientService;
+
+        public QuizService(IClientService clientService)
         {
+            _clientService = clientService;
+        }
+
+        public async Task<Quiz> GetQuiz(QuizTheme theme)
+        {
+            string quizThemePath = string.Empty;
+            switch (theme)
+            {
+                case QuizTheme.Celebrity:
+                    quizThemePath = Constants.CELEBRITY_CHILD;
+                    break;
+                case QuizTheme.Country:
+                    quizThemePath = Constants.COUNTRY_CHILD;
+                    break;
+                case QuizTheme.Movie:
+                    quizThemePath = Constants.MOVIE_CHILD;
+                    break;
+            }
+
+            try
+            {
+                var result = await _clientService.Client.Child(Constants.QUIZ_CHILD)
+                                                    .Child(quizThemePath)
+                                                    .OnceSingleAsync<Quiz>();
+                return result;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
             return null;
         }
     }
     #endregion
 
     #region Mock
-    public class MockQuizService : IQuizService
+    public class MockQuizService //: IQuizService
     {
         public Task<Quiz> GetQuiz(QuizTheme theme)
         {
@@ -40,7 +78,7 @@ namespace MvvmQuiz.Core.Services
             var quiz = new Quiz
             {
                 Theme = QuizTheme.Celebrity,
-                MultipleChoices = new List<MultipleChoice>
+                MultipleChoices = new List<SingleMultipleChoice>
                 {
                     new SingleMultipleChoice
                     {
@@ -108,6 +146,15 @@ namespace MvvmQuiz.Core.Services
                 }
             };
 
+
+            //TODO: removeme
+            //var json = JsonConvert.SerializeObject(quiz);
+            //var _clientService = Mvx.IoCProvider.Resolve<IClientService>();
+            //var result = _clientService.Client.Child(Constants.QUIZ_CHILD)
+            //                                  .Child("celebrity")
+            //                                  .PutAsync(json);
+            //Console.WriteLine(result);
+
             ShuffleQuestionsAndAnswers(quiz);
 
             return Task.FromResult(quiz);
@@ -118,7 +165,7 @@ namespace MvvmQuiz.Core.Services
             var quiz = new Quiz
             {
                 Theme = QuizTheme.Country,
-                MultipleChoices = new List<MultipleChoice>
+                MultipleChoices = new List<SingleMultipleChoice>
                 {
                     new SingleMultipleChoice
                     {
@@ -139,7 +186,7 @@ namespace MvvmQuiz.Core.Services
             var quiz = new Quiz
             {
                 Theme = QuizTheme.Movie,
-                MultipleChoices = new List<MultipleChoice>
+                MultipleChoices = new List<SingleMultipleChoice>
                 {
                     new SingleMultipleChoice
                     {

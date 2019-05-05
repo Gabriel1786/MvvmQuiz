@@ -11,7 +11,6 @@ namespace MvvmQuiz.Core.UnitTests.Models
     {
         protected override void AdditionalSetup()
         {
-
         }
 
         [Test, Description("UseCase: SingleMultipleChoice model if set same SelectedChoice will mark it as unselected.")]

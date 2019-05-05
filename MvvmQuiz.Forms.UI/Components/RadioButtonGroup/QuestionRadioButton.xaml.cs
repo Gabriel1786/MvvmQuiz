@@ -16,7 +16,7 @@ namespace MvvmQuiz.Forms.UI.Components
 
         async void Setup()
         {
-            await Task.Delay(10); // this small delay makes it so it renders the lottie view on view appear
+            await Task.Delay(20); // this small delay makes it so it renders the lottie view on view appear
 
             if (BindingContext is Choice choice)
             {

@@ -1,5 +1,6 @@
 ﻿using System;
 using MvvmCross.ViewModels;
+using Newtonsoft.Json;
 
 namespace MvvmQuiz.Core.Models
 {
@@ -8,6 +9,7 @@ namespace MvvmQuiz.Core.Models
         public string Text { get; set; }
 
         bool _isSelected;
+        [JsonIgnore]
         public bool IsSelected
         {
             get => _isSelected;

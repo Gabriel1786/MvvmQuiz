@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using MvvmCross.IoC;
 using MvvmCross.ViewModels;
+using Newtonsoft.Json;
 
 namespace MvvmQuiz.Core
 {
@@ -12,11 +13,21 @@ namespace MvvmQuiz.Core
                 .EndingWith("Service")
                 .AsInterfaces();
 
-            var servicesList = services.ToList();
+            //var servicesList = services.ToList();
+
+            SetupJsonConvert();
 
             services.RegisterAsLazySingleton();
 
             RegisterCustomAppStart<AppStart>();
+        }
+
+        private void SetupJsonConvert()
+        {
+            JsonConvert.DefaultSettings = () => new JsonSerializerSettings
+            {
+                ContractResolver = AppConfigurations.PropertyNamesContractResolver
+            };
         }
     }
 }
