@@ -91,38 +91,6 @@
     <Compile Include="PlatformOAuthLoginPresenter.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms">
-      <Version>3.6.0.344457</Version>
-    </PackageReference>
-    <PackageReference Include="MvvmCross.Forms">
-      <Version>6.2.3</Version>
-    </PackageReference>
-    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie">
-      <Version>2.7.1</Version>
-    </PackageReference>
-    <PackageReference Include="Xamarin.Auth">
-      <Version>1.6.0.4</Version>
-    </PackageReference>
-    <PackageReference Include="FirebaseAuthentication.net">
-      <Version>3.2.0</Version>
-    </PackageReference>
-    <PackageReference Include="FirebaseDatabase.net">
-      <Version>4.0.1</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.AppCenter.Crashes">
-      <Version>1.14.0</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.AppCenter.Analytics">
-      <Version>1.14.0</Version>
-    </PackageReference>
-    <PackageReference Include="Mobile.BuildTools">
-      <Version>1.4.0.638</Version>
-    </PackageReference>
-    <PackageReference Include="Xamarin.Essentials">
-      <Version>1.1.0</Version>
-    </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\MvvmQuiz.Forms.UI\MvvmQuiz.Forms.UI.csproj">
       <Project>{BEE647ED-5119-41E0-AC42-218F5C112029}</Project>
       <Name>MvvmQuiz.Forms.UI</Name>
@@ -134,6 +102,11 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\choice-checkmark.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Mobile.BuildTools">
+      <Version>1.4.0.638</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
 </Project>
