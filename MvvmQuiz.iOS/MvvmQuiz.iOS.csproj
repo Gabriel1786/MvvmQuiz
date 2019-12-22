@@ -34,6 +34,9 @@
     <MtouchVerbosity>
     </MtouchVerbosity>
     <CodesignProvision>Gabe-DevAll</CodesignProvision>
+    <CrashReportingApiKey></CrashReportingApiKey>
+    <CrashReportingDelay>-1</CrashReportingDelay>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <Optimize>true</Optimize>
@@ -52,6 +55,8 @@
     <MtouchVerbosity>
     </MtouchVerbosity>
     <CodesignProvision>Gabe-DevAll</CodesignProvision>
+    <IntermediateOutputPath></IntermediateOutputPath>
+    <MtouchEnableBitcode></MtouchEnableBitcode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <Optimize>true</Optimize>
@@ -74,7 +79,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\iPhone\Debug</OutputPath>
-    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <DefineConstants>__IOS__;__MOBILE__;__UNIFIED__;DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodesignKey>iPhone Developer: Gabriel den Hartog (TTE5G3987Y)</CodesignKey>
@@ -90,7 +95,7 @@
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
     <MtouchVerbosity>
     </MtouchVerbosity>
-    <CodesignProvision>Gabe-DevAll</CodesignProvision>
+    <CodesignProvision>Wildcard Dev</CodesignProvision>
     <MtouchExtraArgs>--optimize=-remove-dynamic-registrar</MtouchExtraArgs>
   </PropertyGroup>
   <ItemGroup>

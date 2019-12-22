@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text;
 using Foundation;
 using MvvmCross;
 using MvvmCross.Forms.Platforms.Ios.Core;
@@ -20,10 +21,24 @@ namespace MvvmQuiz.iOS
 #if ENABLE_TEST_CLOUD
 			Xamarin.Calabash.Start();
 #endif
-
             Xamarin.Auth.Presenters.XamarinIOS.AuthenticationConfiguration.Init();
-
             SetupConfigurations();
+
+#if DEBUG
+            var fontList = new StringBuilder();
+            var familyNames = UIFont.FamilyNames;
+            foreach (var familyName in familyNames)
+            {
+                fontList.Append(String.Format("Family: {0}\n", familyName));
+                Console.WriteLine("Family: {0}\n", familyName);
+                var fontNames = UIFont.FontNamesForFamilyName(familyName);
+                foreach (var fontName in fontNames)
+                {
+                    Console.WriteLine("\tFont: {0}\n", fontName);
+                    fontList.Append(String.Format("\tFont: {0}\n", fontName));
+                }
+            }
+#endif
 
             return base.FinishedLaunching(uiApplication, launchOptions);
         }
